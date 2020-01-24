@@ -1,5 +1,5 @@
 {% set name = "argparse-manpage" %}
-{% set version = "1.2.2" %}
+{% set version = "1.4" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: daffa8e2d1bbcb1334c842ee2529bb1e1b58f4b17ed60f4b27891520e28cd842
+  sha256: b33da166a72bebb5ecd5b72536e8aaebbec2e6f2705dcb3c8f07cdae338a51f4
   patches:
     # remove script, we handle it as an entry_point here
     - no-scripts.patch
