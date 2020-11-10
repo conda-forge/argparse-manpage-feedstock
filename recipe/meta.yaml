@@ -8,9 +8,6 @@ package:
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
   sha256: 2ef0c32a6ee02d7ea0605d73075ce562ac791cc386cf9060bd40166dcfc9a6a7
-  patches:
-    # remove script, we handle it as an entry_point here
-    - no-scripts.patch
 
 build:
   noarch: python
