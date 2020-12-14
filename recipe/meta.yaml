@@ -1,18 +1,18 @@
 {% set name = "argparse-manpage" %}
-{% set version = "1.3" %}
+{% set version = "1.5" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 2ef0c32a6ee02d7ea0605d73075ce562ac791cc386cf9060bd40166dcfc9a6a7
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 0caa9d7a175f4c76853756814facc017d99d1ca3493b8982911aed82747c73f8
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - argparse-manpage = build_manpages.cli:main
 
@@ -32,11 +32,11 @@ test:
     - argparse-manpage --help
 
 about:
-  home: "https://github.com/praiskup/argparse-manpage"
-  license: "Apache-2.0"
-  license_family: "APACHE"
-  license_file: "LICENSE"
-  summary: "Build manual page from python's ArgumentParser object."
+  home: https://github.com/praiskup/argparse-manpage
+  license: Apache-2.0
+  license_family: APACHE
+  license_file: LICENSE
+  summary: Build manual page from python's ArgumentParser object.
 
 extra:
   recipe-maintainers:
