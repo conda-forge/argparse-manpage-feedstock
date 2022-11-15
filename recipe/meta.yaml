@@ -14,21 +14,27 @@ build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
-    - argparse-manpage = build_manpages.cli:main
+    - argparse-manpage = argparse_manpage.cli:main
 
 requirements:
   host:
     - pip
-    - python >=2.7
+    - python >=3.6
     - setuptools
   run:
-    - python >=2.7
+    - python >=3.6
 
 test:
+  requires:
+    - pip
   imports:
+    - argparse_manpage
     - build_manpages
-    - build_manpages.cli
   commands:
+    # check metadata
+    - python -m pip check argparse-manpage
+    - python -m pip show argparse-manpage
+    # check entry points
     - argparse-manpage --help
 
 about:
