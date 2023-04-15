@@ -1,11 +1,11 @@
-About argparse-manpage
-======================
+About argparse-manpage-feedstock
+================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/argparse-manpage-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/praiskup/argparse-manpage
 
 Package license: Apache-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/argparse-manpage-feedstock/blob/main/LICENSE.txt)
 
 Summary: Build manual page from python's ArgumentParser object.
 
