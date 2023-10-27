@@ -1,5 +1,5 @@
 {% set name = "argparse-manpage" %}
-{% set version = "4.4" %}
+{% set version = "4.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c374ae71056065798b9eb6e4d93232ddc972c9cd59646bcd9d84619336290fb4
+  sha256: 213c061878a10bf0e40f6a293382f6e82409e5110d0683b16ebf87f903d604db
 
 build:
   noarch: python
