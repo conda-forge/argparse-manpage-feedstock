@@ -6,12 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 0b659d70fd142876da41c2918bd6de4d027875720b0e4672d6443b51198dbb62
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - argparse-manpage = argparse_manpage.cli:main
@@ -19,14 +19,16 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     - setuptools
   run:
-    - python >=3.6
+    - python >={{ python_min }}
+    - tomli
 
 test:
   requires:
     - pip
+    - python {{ python_min }}
   imports:
     - argparse_manpage
     - build_manpages
