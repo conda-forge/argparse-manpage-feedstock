@@ -1,0 +1,53 @@
+schema_version: 1
+
+context:
+  version: "4.8"
+
+package:
+  name: argparse-manpage
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/source/a/argparse-manpage/argparse_manpage-${{ version }}.tar.gz
+  sha256: d55ce1c246479ddd82871170a8cc543a6831bb68c87a298e47f0663a9330b74f
+
+build:
+  noarch: python
+  number: 0
+  python:
+    entry_points:
+      - argparse-manpage = argparse_manpage.cli:main
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - setuptools
+    - tomli
+
+tests:
+  - python:
+      imports:
+        - argparse_manpage
+        - build_manpages
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+  - script:
+      - argparse-manpage --help
+
+about:
+  summary: Build manual page from python's ArgumentParser object.
+  homepage: https://github.com/praiskup/argparse-manpage
+  license: Apache-2.0
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - duncanmmacleod
+    - thewchan
